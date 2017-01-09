@@ -1,0 +1,118 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:background-image="http://www.w3.org/1999/xhtml">
+<head>
+    <!--<link rel="stylesheet" href="https://bootswatch.com/cyborg/bootstrap.min.css"/>-->
+    <!--<link rel="stylesheet" href="styleLogin.css"/>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<body align="center" background="register.png">
+
+<div class="row" background-image="register.png">
+
+<div class="col-md-3">
+</div>
+
+    <div class="form-group">
+    <br/>
+    <br/>
+    <h2>Welcome Back! Please Login to Your Account</h2>
+    <hr class="colorgraph"/><br/>
+    </div>
+
+<form th:action="@{/login}" method="post">
+    <div class="container">
+        <div class="jumbotron">
+            <h2>Log in</h2>
+
+        </div>
+        <form>
+            <div class="form-group">
+                <label for="username">Email:</label>
+                <div>
+                    <input type="text" class="form-control" name="username" placeholder="Email" id="username"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <div>
+                    <input type="password" class="form-control" name="password" placeholder="Passoword" id="password"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+                    <button type="submit" class="btn btn-primary">Log in</button>
+                    <a href="/" class="btn btn-primary">Back</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</form>
+
+
+    <div class="col-md-3">
+    </div>
+
+
+    <div ng-app="myApp" ng-controller="myCtrl">
+        {{ firstName + " " + lastName }}
+    </div>
+
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("myCtrl", function($scope) {
+            $scope.firstName = "John";
+            $scope.lastName = "Doe";
+        });
+    </script>
+
+</div>
+
+
+
+<!--<div class="col-md-7">-->
+<!--<div class="bgform">>-->
+
+<!--<div class="card card-container">-->
+<!--&lt;!&ndash; <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> &ndash;&gt;-->
+<!--<div class="form-group">-->
+<!--<br/>-->
+<!--<br/>-->
+<!--<h2>Welcome Back! Please Login to Your Account</h2>-->
+<!--<hr class="colorgraph"><br>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;<img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />&ndash;&gt;-->
+<!--<p id="profile-name" class="profile-name-card"></p>-->
+<!--<form class="form-signin"  th:action="@{/login}" method="post">-->
+<!--<span id="reauth-email" class="reauth-email"></span>-->
+<!--<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>-->
+<!--<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>-->
+<!--<div id="remember" class="checkbox">-->
+<!--<label>-->
+<!--<input type="checkbox" value="remember-me"> Remember me-->
+<!--</label>-->
+<!--</div>-->
+<!--<button    class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>-->
+<!--</form>&lt;!&ndash; /form &ndash;&gt;-->
+<!--<a href="#" class="forgot-password">-->
+<!--Forgot the password?-->
+<!--</a>-->
+<!--</div>&lt;!&ndash; /card-container &ndash;&gt;-->
+
+
+<!--</div>-->
+<!--<br/>-->
+
+<!--</div>-->
+
+
+<!--</div>-->
+
+<!--</div>-->
+
+<!--</div>-->
+<!--</div>-->
+
+
+</body>
+</html>

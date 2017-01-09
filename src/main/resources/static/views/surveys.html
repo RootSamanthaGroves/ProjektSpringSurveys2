@@ -1,0 +1,27 @@
+<div class="container">
+    <br/>
+    <br/>
+    <br/>
+    <h1>All available surveys</h1>
+    <h3>{{message}}</h3>
+
+
+    <br/>
+    <div class="col-sm-6 col-md-4"
+         ng-repeat="s in survey">
+        <div class="thumbnail">
+            <img ng-src="views/image/ankieta.png" alt="Image">
+            <div class="caption">
+                <h3>{{s.title}}</h3>
+
+            </div>
+            <div class="product-buttons">
+                <!--<a ng-href="index.html#/phone/detail/{{s.id}}" class="btn btn-info"-->
+                <!--role="button" ng-click="showDetail($event)" data-id="{{s.id}}">Szczegóły</a>-->
+                <a target="_blank" ng-href="index.html#/questions/{{s.id}}" class="btn btn-warning" role="button"
+                   ng-click="FiilInQuestionnaire(s)">Fill in the questionnaire</a>
+
+            </div>
+        </div>
+    </div>
+</div>

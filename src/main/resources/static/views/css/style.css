@@ -1,0 +1,268 @@
+.home {
+
+    background-image: url("survey.png");
+    margin-top: 50px;
+
+    /*background-position: center top;*/
+    min-height: 500px;
+    background-attachment: scroll;
+    background-position:center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    color: #474e5d;
+    background-color: #1abc9c;
+    padding-top: 40px;
+    height: 650px;
+    /*padding: 35px;*/
+
+
+}
+.bg-1{
+    background-color: beige;
+
+}
+.bg-contack {
+
+    background-image: url("contact.png");
+    background-position: center top;
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*background-repeat: repeat;*/
+    color: #fff;
+    background-color: inherit;
+    padding-top: 0px;
+    height: 1000px;
+}
+
+.register {
+    background-image: url("signup.png");
+    background-position: center top;
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*background-repeat: repeat;*/
+    color: #474e5d;
+    background-color: #1abc9c;
+    padding-top: 0px;
+    height: 1000px;
+
+}
+
+.survey {
+    background-image: url("signup.png");
+    background-position: center top;
+    min-height: 500px;
+    background-attachment: local;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*background-repeat: repeat;*/
+    color: #474e5d;
+    /*background-color: #1abc9c;*/
+    padding-top: 0px;
+    height: 1000px;
+
+}
+
+.questions {
+    margin-top: 30px;
+    background-image: url("signup.png");
+    background-position: center top;
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*background-repeat: repeat;*/
+    color: #474e5d;
+    /*background-color: #1abc9c;*/
+    padding-top: 0px;
+    height: 1000px;
+
+}
+
+.login {
+    background-image: url("signup.png");
+    background-position: center top;
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*background-repeat: repeat;*/
+    color: #fff;
+    background-color: #1abc9c;
+    padding-top: 0px;
+    height: 1000px;
+
+}
+
+.createSurvey {
+    margin-top: 30px;
+    background-image: url("signup.png");
+    background-position: center top;
+    min-height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    /*background-size: contain;*/
+    background-attachment: scroll;
+    background-size: cover;
+    /*background-repeat: repeat;*/
+    color: #474e5d;
+    background-color: #1abc9c;
+    padding-top: 0px;
+    height: 1000px;
+
+}
+
+.account {
+    background-image: url("account.png");
+    background-position: center top;
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*background-repeat: repeat;*/
+    color: black;
+    background-color: #1abc9c;
+    padding-top: 0px;
+    height: 1000px;
+
+}
+
+.navbar-nav li a:link {
+    color: #1abc9c !important;
+}
+
+.navbar-nav li a:visited {
+    color: #1abc9c !important;
+}
+
+.navbar-nav li a:hover {
+    color: #f0776c !important;
+}
+
+.navbar-nav li a:active {
+    color: #474e5d !important;
+}
+
+.sign {
+    position: relative;
+    width: 100%;
+}
+
+.image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #008CBA;
+}
+
+.sign:hover .overlay {
+    opacity: 1;
+}
+
+.text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+/*.singup {*/
+/*float: left;*/
+/*margin: 10px;*/
+/*padding: 10px;*/
+/*max-width: 300px;*/
+/*height: 300px;*/
+/*border: 1px solid black;*/
+/*}*/
+h2 {
+    color: green;
+}
+
+p {
+    color: green;
+}
+
+/*input.ng-invalid {*/
+/*background-color:pink;*/
+/*}*/
+/*input.ng-valid {*/
+/*background-color:lightgreen;*/
+/*"glyphicon glyphicon-ok form-control-feedback"*/
+/*}*/
+
+/*
+ * Specific styles of signin component
+ */
+/*
+ * General styles
+ */
+/*body, html {*/
+/*height: 100%;*/
+/*background-repeat: no-repeat;*/
+/*background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
+/*}*/
+
+/*.btn {*/
+/*font-weight: 700;*/
+/*height: 36px;*/
+/*-moz-user-select: none;*/
+/*-webkit-user-select: none;*/
+/*user-select: none;*/
+/*cursor: default;*/
+/*}*/
+
+/*.btn.btn-signin {*/
+/*!*background-color: #4d90fe; *!*/
+/*background-color: rgb(104, 145, 162);*/
+/*!* background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*!*/
+/*padding: 0px;*/
+/*font-weight: 700;*/
+/*font-size: 14px;*/
+/*height: 36px;*/
+/*-moz-border-radius: 3px;*/
+/*-webkit-border-radius: 3px;*/
+/*border-radius: 3px;*/
+/*border: none;*/
+/*-o-transition: all 0.218s;*/
+/*-moz-transition: all 0.218s;*/
+/*-webkit-transition: all 0.218s;*/
+/*transition: all 0.218s;*/
+/*}*/
+
+.colorgraph {
+    height: 7px;
+    border-top: 0;
+    background: #c4e17f;
+    border-radius: 5px;
+    background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+    background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+    background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+    background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+}
+
+

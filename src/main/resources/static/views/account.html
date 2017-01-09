@@ -1,0 +1,108 @@
+<div class="account">
+    <div class="container">
+        <br/>
+        <br/>
+        <br/>
+
+        <h1>Account</h1>
+        <h1> User Name</h1>
+        <button class="btn btn-info" ng-click="loadMyDate() ">&#9998; Show filled questionnaires</button>
+        <button class="btn btn-info" ng-click="getZalogowany() ">&#9998; Show filled questionnaires</button>
+        <h3>{{myemail}}</h3>
+        <h3>{{zalogowany}}</h3>
+        <h3>{{message}}</h3>
+        <div class="row">
+            <div class="col-md-8">
+                <br/>
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>firstName</th>
+                        <th>lastName</th>
+                        <th>email</th>
+                        <th>password</th>
+                        <th>Edit</th>
+
+                    </tr>
+                    </thead>
+                    <!--mamy petle for each-->
+                    <!--&lt;!&ndash;p.id&ndash;&gt; bo w postmanie w json gostek ma pole o nazwie id i tak samo dla imienie i nazwiska-->
+
+                    <!--class="w3-btn w3-ripple"-->
+                    <tbody>
+                    <tr ng-repeat="u in user |orderBy:'firstname'">
+
+                        <td>{{ u.id }}</td>
+                        <td>{{ u.firstName }}</td>
+                        <td>{{ u.lastName }}</td>
+                        <th>{{ u.email }}</th>
+                        <th>{{ u.password }}</th>
+
+                        <th>
+                            <button class="btn btn-info" ng-click="editUser(u)">&#9998; Show filled questionnaires
+                            </button>
+                        </th>
+
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+
+
+
+
+
+
+
+            <!--<div ng-show="true" class="col-md-4 col-md-offset-3">-->
+                <!--<br/>-->
+                <!--<form>-->
+                    <!--<div class="form-group">-->
+                        <!--<h2>Update user</h2>-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<input ng-model="id"/>-->
+
+                        <!--<div>-->
+                            <!--<label for="name">firstName:</label>-->
+                            <!--<input type="text" class="form-control" id="firstName" ng-model="firstName"/>-->
+                        <!--</div>-->
+
+                        <!--<label for="name">lastName:</label>-->
+                        <!--<div>-->
+                            <!--<input type="text" class="form-control" id="lastName" placeholder=ur.email-->
+                                   <!--ng-model="lastName"/>-->
+                        <!--</div>-->
+
+                        <!--<label for="name">email:</label>-->
+                        <!--<div>-->
+                            <!--<input type="text" class="form-control" id="email" placeholder="email" ng-model="email"/>-->
+                        <!--</div>-->
+
+
+                        <!--<label for="name">password:</label>-->
+                        <!--<div>-->
+                            <!--<input type="text" class="form-control" id="name" placeholder="Password"-->
+                                   <!--ng-model="password"/>-->
+                        <!--</div>-->
+
+
+                        <!--&lt;!&ndash;update(id ,firstName, lastName, email, password ,salary)&ndash;&gt;-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<div>-->
+                            <!--<button type="submit" class="btn btn-success" ng-click="update()">&#x2718; Update User-->
+                            <!--</button>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</form>-->
+                <!--<p>{{status}}</p>-->
+            <!--</div>-->
+        </div>
+
+    </div>
+</div>
