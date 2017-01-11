@@ -1,151 +1,64 @@
-<div class="bg-contack">
-    <div class="container ">
+<section id="sendMassage" class="sendMassage">
 
-        </br>
-        </br>
-        </br>
-        </br>
-        <div class="bgform">
-            <div class="row ">
-                <div class="col-sm-4">
-                </div>
-                <div class="col-sm-8">
-                    <br id="contact" class="container-fluid bg-grey">
-                    <h2 class="text-center">Contact</h2>
 
-                    <div>
-                        <p>Contact us and we'll get back to you within 24 hours.</p>
-                        <p><span class="glyphicon glyphicon-map-marker"></span> Rzeszów, Poland</p>
-                        <p><span class="glyphicon glyphicon-phone"></span> +00 1515151515</p>
-                        <p><span class="glyphicon glyphicon-envelope"></span> dominika.sporzynska@gmail.com</p>
-                    </div>
-                    </br>
-                    <form>
-                        <div class=" slideanim">
-                            <div class="row">
-                                <div class="col-sm-6 form-group">
-                                    <input class="form-control" id="nameOfMessage" name="name" placeholder="Name"
-                                           type="text"
-                                           ng-model="nameOfMessage">
-                                </div>
-                                <div class="col-sm-6 form-group">
-                                    <input class="form-control" id="emailOfMessage" name="email" placeholder="Email"
-                                           type="email"
-                                           ng-model="emailOfMessage">
-                                </div>
+    <!--<div class="container-fluid">-->
+
+
+    <div class="bgform">
+        <div class="row ">
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-8">
+                <!--<br id="contact" class="container-fluid bg-grey">-->
+                <h2 class="text-center">Contact</h2>
+
+
+                <p>Contact us and we'll get back to you within 24 hours.</p>
+                <p><span class="glyphicon glyphicon-map-marker"></span> Rzeszów, Poland</p>
+                <p><span class="glyphicon glyphicon-phone"></span> +00 1515151515</p>
+                <p><span class="glyphicon glyphicon-envelope"></span> dominika.sporzynska@gmail.com</p>
+
+                </br>
+                <form>
+                    <div class=" slideanim">
+                        <div class="row">
+                            <div class="col-sm-6 form-group">
+                                <input class="form-control" id="nameOfMessage" name="name" placeholder="Name"
+                                       type="text"
+                                       ng-model="nameOfMessage">
                             </div>
-                            <textarea class="form-control" id="messageOfMessage" name="comments" placeholder="Comment"
-                                      rows="5" ng-model="messageOfMessage"></textarea><br>
-                            <div class="row">
-                                <div class="col-sm-12 form-group">
-                                    <button type="submit" value="Submit"
-                                            class="btn btn-success glyphicon glyphicon-user col-sm-6"
-                                            ng-click="sendMessage()">
-                                        Send
-                                    </button>
-                                </div>
+                            <div class="col-sm-6 form-group">
+                                <input class="form-control" id="emailOfMessage" name="email" placeholder="Email"
+                                       type="email"
+                                       ng-model="emailOfMessage">
                             </div>
                         </div>
-                    </form>
-                </div>
+                        <textarea class="form-control" id="messageOfMessage" name="comments" placeholder="Comment"
+                                  rows="5" ng-model="messageOfMessage"></textarea><br>
+                        <div class="row">
+                            <div class="col-sm-12 form-group">
+                                <button type="submit" value="Submit"
+                                        class="btn btn-success glyphicon glyphicon-user col-sm-12"
+                                        ng-click="sendMessage()">
+                                    Send
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-2">
             </div>
         </div>
     </div>
 
-</div>
-</div>
 
-<!--<h1>Users Update</h1>-->
-
-<!--<h3>{{message}}</h3>-->
-<!--<div class="row">-->
-<!--<div class="col-md-8">-->
-<!--<br/>-->
-<!--<table class="table table-hover">-->
-<!--<thead>-->
-<!--<tr>-->
-<!--<th>Id</th>-->
-<!--<th>firstName</th>-->
-<!--<th>lastName</th>-->
-<!--<th>email</th>-->
-<!--<th>password</th>-->
-<!--<th>salary</th>-->
-<!--<th>Edit</th>-->
-<!--<th>Delete</th>-->
-<!--</tr>-->
-<!--</thead>-->
-<!--&lt;!&ndash;mamy petle for each&ndash;&gt;-->
-<!--&lt;!&ndash;&lt;!&ndash;p.id&ndash;&gt; bo w postmanie w json gostek ma pole o nazwie id i tak samo dla imienie i nazwiska&ndash;&gt;-->
-
-<!--&lt;!&ndash;class="w3-btn w3-ripple"&ndash;&gt;-->
-<!--<tbody>-->
-<!--<tr ng-repeat="u in user |orderBy:'firstname'">-->
-
-<!--<td>{{ u.id }}</td>-->
-<!--<td>{{ u.firstName }}</td>-->
-<!--<td>{{ u.lastName }}</td>-->
-<!--<th>{{ u.email }}</th>-->
-<!--<th>{{ u.password }}</th>-->
-<!--<th>{{ u.salary }}</th>-->
-<!--<th>-->
-<!--<button class="btn btn-info" ng-click="editUser(u)">&#9998; Edit</button>-->
-<!--</th>-->
-<!--<th>-->
-<!--<button class="btn btn-danger" ng-click="delete(u.id)">&#x2718; Delete</button>-->
-<!--</th>-->
+</section>
 
 
-<!--</tr>-->
-<!--</tbody>-->
-<!--</table>-->
-
-<!--</div>-->
-<!--</div>-->
-
-<!--<div ng-show="showMe" class="col-md-4">-->
-<!--<br/>-->
-<!--<form>-->
-<!--<div class="form-group">-->
-<!--<h2>Update user</h2>-->
-<!--</div>-->
-<!--<div class="form-group">-->
-<!--<input  ng-model="id"  />-->
-<!--<label for="name">firstName:</label>-->
-<!--<div>-->
-<!--<input type="text" class="form-control" id="firstName"  ng-model="firstName"  />-->
-<!--</div>-->
-
-<!--<label for="name">lastName:</label>-->
-<!--<div>-->
-<!--<input type="text" class="form-control" id="lastName" placeholder= ur.email  ng-model="lastName" />-->
-<!--</div>-->
-
-<!--<label for="name">email:</label>-->
-<!--<div>-->
-<!--<input type="text" class="form-control" id="email" placeholder="email" ng-model="email" />-->
-<!--</div>-->
 
 
-<!--<label for="name">password:</label>-->
-<!--<div>-->
-<!--<input type="text" class="form-control" id="password" placeholder="Password" ng-model="password"  />-->
-<!--</div>-->
 
 
-<!--<label for="name">salary:</label>-->
-<!--<div>-->
-<!--<input type="text" class="form-control" id="name" placeholder="Salary" ng-model="salary"/>-->
 
-<!--</div>-->
-<!--&lt;!&ndash;update(id ,firstName, lastName, email, password ,salary)&ndash;&gt;-->
-<!--</div>-->
-<!--<div class="form-group">-->
-<!--<div>-->
-<!--<button type="submit" class="btn btn-success"  ng-click="update()">&#x2718; Update User</button>-->
-<!--</div>-->
-<!--</div>-->
-<!--</form>-->
-<!--<p>{{status}}</p>-->
-<!--</div>-->
-</div>
-</div>
+

@@ -1,28 +1,29 @@
 // create the module and name it scotchApp
 var myApp = angular.module('myApp', ['ngRoute', 'ngResource', 'ui.bootstrap']);
 
+
 myApp.config(function ($routeProvider) {
     $routeProvider
-
-
-        .when('/home', {
-            templateUrl: 'views/home.html',
+    //ok
+        .when('/start', {
+            templateUrl: 'views/start.html',
             controller: 'SurveysController'
         })
+
+        // .when('/home', {
+        //     templateUrl: 'views/home.html',
+        //     controller: 'SurveysController'
+        // })
         .when('/sign', {
             templateUrl: 'views/register.html',
             controller: 'RegisterController'
         })
-        .when('/login2', {
+        .when('/login', {
             templateUrl: 'views/login2.html',
             controller: 'LoginController'
         })
-        .when('/surveys', {
-            templateUrl: 'views/surveys.html',
-            controller: 'SurveysController'
-        })
 
-        .when('/about', {
+        .when('/about', {// ok
             templateUrl: 'views/about.html',
             controller: 'AboutController'
         })
@@ -45,3 +46,5 @@ myApp.config(function ($routeProvider) {
 
         .otherwise({redirectTo: '/'});
 });
+
+

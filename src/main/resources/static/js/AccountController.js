@@ -1,19 +1,20 @@
 
 angular.module('myApp').controller('AccountController', function ($scope, $resource, $http) {
-        $scope.message = 'Hello from AccountController';
+    $scope.message = 'Hello from  ';
         $scope.user;
         $scope.id;
-        $scope.myemail;
+    $scope.myemail = "dupa";
         $scope.zalogowany;
 
     var getZalogowany = function () {
-        var User = $resource('user/current', {}, {
-            query: {method: 'get', isArray: true, cancellable: true}
+        var User = $resource('user/current.json', {}, {
+            query: {method: 'get', isArray: false, cancellable: true}
         });
 
         User.query(function (response) {
-            alert(response.data.email);
-            $scope.zalogowany = response.data.email;
+
+            $scope.myemail = response.email;
+            alert(zalogowany);
         });
     };
     getZalogowany();

@@ -39,7 +39,8 @@ public class UserController {
             return new ResponseEntity(HttpStatus.NO_CONTENT);
         return ResponseEntity.ok(usersList);
     }
-    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
+
+    /*  @PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")*/
     @GetMapping("current")
     public ResponseEntity currentUser() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();

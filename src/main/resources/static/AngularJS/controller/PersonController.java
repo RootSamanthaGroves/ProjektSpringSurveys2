@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * Created by Marcin on 24.11.2016.
- */
+
 @RestController
 @RequestMapping("/person")
 public class PersonController {
