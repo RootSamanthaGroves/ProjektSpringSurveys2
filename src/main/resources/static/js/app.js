@@ -23,10 +23,10 @@ myApp.config(function ($routeProvider) {
             controller: 'LoginController'
         })
 
-        .when('/about', {// ok
-            templateUrl: 'views/about.html',
-            controller: 'AboutController'
-        })
+        // .when('/about', {// ok
+        //     templateUrl: 'views/about.html',
+        //     controller: 'AboutController'
+        // })
         .when('/sendMassage', {//ok
             templateUrl: 'views/sendMessage.html',
             controller: 'SendMessageController'

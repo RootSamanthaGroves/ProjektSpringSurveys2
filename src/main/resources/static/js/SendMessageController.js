@@ -22,6 +22,21 @@ angular.module('myApp').controller('SendMessageController', function ($scope, $r
         })
     };
 
+
+    var loadAllMessageFromDb = function () {
+        var User = $resource('message/all', {}, {
+            query: {method: 'get', isArray: true, cancellable: true}
+        });
+        User.query(function (response) {
+            //alert(response); teraz w response masz to co bys widzial w postmanie takiego jsona
+            $scope.message = response;
+        });
+    };
+    loadAllMessageFromDb();
+
+
+
+
     //
     //     $scope.dajId = function (id) {
     //         alert(id);

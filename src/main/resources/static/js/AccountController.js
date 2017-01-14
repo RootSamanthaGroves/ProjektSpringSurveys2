@@ -1,18 +1,15 @@
 
 angular.module('myApp').controller('AccountController', function ($scope, $resource, $http) {
-    $scope.message = 'Hello from  ';
-        $scope.user;
-        $scope.id;
-    $scope.myemail = "dupa";
-        $scope.zalogowany;
+        $scope.message = 'Hello  ';
+        // $scope.user;
+        // $scope.id;
+        // $scope.zalogowany="";
 
     var getZalogowany = function () {
         var User = $resource('user/current.json', {}, {
             query: {method: 'get', isArray: false, cancellable: true}
         });
-
         User.query(function (response) {
-
             $scope.myemail = response.email;
             alert(zalogowany);
         });
@@ -20,16 +17,11 @@ angular.module('myApp').controller('AccountController', function ($scope, $resou
     getZalogowany();
 
         $scope.showMe = false;
-
-
         $scope.dajId = function (id) {
             alert(id);
         }
-
-
         $scope.myFunc = function () {
             $scope.showMe = true;
-            //  !$scope.showMe;
         }
 
 
@@ -52,13 +44,10 @@ angular.module('myApp').controller('AccountController', function ($scope, $resou
     };
 
 
-
-
         var loadAllPeopleFromDb = function () {
             var User = $resource('user/all', {}, {
                 query: {method: 'get', isArray: true, cancellable: true}
             });
-
             User.query(function (response) {
                 //alert(response); teraz w response masz to co bys widzial w postmanie takiego jsona
                 $scope.user = response;
@@ -108,14 +97,11 @@ angular.module('myApp').controller('AccountController', function ($scope, $resou
                 $scope.email = user.email,
                 $scope.password = user.password,
                 $scope.salary = user.salary;
-
         }
 
 
         //Update
         $scope.update = function () {
-
-
             var testObj = {
                 id: $scope.id,
                 firstName: $scope.firstName,
@@ -124,7 +110,6 @@ angular.module('myApp').controller('AccountController', function ($scope, $resou
                 password: $scope.password,
                 salary: $scope.salary,
             };
-
             // var url = 'user/edit/' + $scope.id;
             // $http.post(url, testObj).success(function () {
             //     alert('User został zmodyfikowany');
@@ -139,14 +124,8 @@ angular.module('myApp').controller('AccountController', function ($scope, $resou
             }).error(function () {
                 alert('Nie udało się zmienić danych!');
             })
-
         }
 
-    $scope.test = function () {
-     $scope.myemail="dyuuj";
-
-
-    }
 
     }
 );
