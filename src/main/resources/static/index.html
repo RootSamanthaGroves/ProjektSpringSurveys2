@@ -85,7 +85,7 @@
                     <a class="page-scroll" href="#homeDiv">Home</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#surveyDiv">Survey</a>
+                    <a class="page-scroll" href="#portfolio">Survey</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="#aboutDiv">About</a>
@@ -101,7 +101,8 @@
                 <li class="hidden">
                     <a href="#page-top"></a>
                 </li>
-                <li><a href="#sign"><span class="glyphicon glyphicon-user fa fa-shield"></span> Sign Up</a></li>
+                <li><a href="#signUp" class="portfolio-link" data-toggle="modal"><span
+                        class="glyphicon glyphicon-user fa fa-shield"></span> Sign Up</a></li>
                 <li><a href="/login"><span class="glyphicon glyphicon-log-in fa fa-shield"></span> Login</a></li>
                 <li><a href="#account"><span class="glyphicon glyphicon-user  fa fa-shield"></span> Account</a></li>
             </ul>
@@ -115,8 +116,8 @@
 <header>
     <div class="container">
         <div class="intro-text">
-            <div class="intro-lead-in">Welcome To Our Studio!</div>
-            <div class="intro-heading">It's Nice To Meet You</div>
+            <div class="intro-lead-in">Welcome on Our Site!</div>
+            <div class="intro-heading">It's nice that you visited us</div>
             <a href="/login" class="page-scroll btn btn-xl">Sign In</a>
         </div>
     </div>
@@ -130,8 +131,8 @@
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading">Services</h2>
                 <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-                </div>
             </div>
+        </div>
         <div class="row text-center">
             <div class="col-md-4">
                     <span class="fa-stack fa-4x">
@@ -161,107 +162,108 @@
                     architecto quo inventore harum ex magni, dicta impedit.</p>
             </div>
         </div>
-        </div>
+    </div>
 </section>
 
+
 <!-- Portfolio Grid Section -->
-<section id="surveyDiv" class="bg-light-gray">
+<section id="portfolio" class="bg-light-gray" ng-controller="SurveysController">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading">Portfolio</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                <h2 class="section-heading">Surveys</h2>
+                <h3 class="section-subheading text-muted">Become a creator of a huge database.
+                    Support our experts.</h3>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4 col-sm-6 portfolio-item">
+            <div class="col-md-4 col-sm-6 portfolio-item" ng-repeat="s in survey">
                 <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
                     <div class="portfolio-hover">
                         <div class="portfolio-hover-content">
                             <i class="fa fa-plus fa-3x"></i>
                         </div>
-                        </div>
+                    </div>
                     <img src="img/portfolio/roundicons.png" class="img-responsive" alt="">
                 </a>
                 <div class="portfolio-caption">
-                    <h4>Round Icons</h4>
+                    <h4>{{s.title}}</h4>
                     <p class="text-muted">Graphic Design</p>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content">
-                            <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                    </div>
-                    <img src="img/portfolio/startup-framework.png" class="img-responsive" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>Startup Framework</h4>
-                    <p class="text-muted">Website Design</p>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content">
-                            <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                    <img src="img/portfolio/treehouse.png" class="img-responsive" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>Treehouse</h4>
-                    <p class="text-muted">Website Design</p>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content">
-                            <i class="fa fa-plus fa-3x"></i>
-                        </div>
-                        </div>
-                    <img src="img/portfolio/golden.png" class="img-responsive" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>Golden</h4>
-                    <p class="text-muted">Website Design</p>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content">
-                            <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                    </div>
-                    <img src="img/portfolio/escape.png" class="img-responsive" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>Escape</h4>
-                    <p class="text-muted">Website Design</p>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content">
-                            <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                    <img src="img/portfolio/dreams.png" class="img-responsive" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>Dreams</h4>
-                    <p class="text-muted">Website Design</p>
-                </div>
-            </div>
+            <!--<div class="col-md-4 col-sm-6 portfolio-item">-->
+            <!--<a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">-->
+            <!--<div class="portfolio-hover">-->
+            <!--<div class="portfolio-hover-content">-->
+            <!--<i class="fa fa-plus fa-3x"></i>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<img src="img/portfolio/startup-framework.png" class="img-responsive" alt="">-->
+            <!--</a>-->
+            <!--<div class="portfolio-caption">-->
+            <!--<h4>Startup Framework</h4>-->
+            <!--<p class="text-muted">Website Design</p>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-md-4 col-sm-6 portfolio-item">-->
+            <!--<a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">-->
+            <!--<div class="portfolio-hover">-->
+            <!--<div class="portfolio-hover-content">-->
+            <!--<i class="fa fa-plus fa-3x"></i>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<img src="img/portfolio/treehouse.png" class="img-responsive" alt="">-->
+            <!--</a>-->
+            <!--<div class="portfolio-caption">-->
+            <!--<h4>Treehouse</h4>-->
+            <!--<p class="text-muted">Website Design</p>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-md-4 col-sm-6 portfolio-item">-->
+            <!--<a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">-->
+            <!--<div class="portfolio-hover">-->
+            <!--<div class="portfolio-hover-content">-->
+            <!--<i class="fa fa-plus fa-3x"></i>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<img src="img/portfolio/golden.png" class="img-responsive" alt="">-->
+            <!--</a>-->
+            <!--<div class="portfolio-caption">-->
+            <!--<h4>Golden</h4>-->
+            <!--<p class="text-muted">Website Design</p>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-md-4 col-sm-6 portfolio-item">-->
+            <!--<a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">-->
+            <!--<div class="portfolio-hover">-->
+            <!--<div class="portfolio-hover-content">-->
+            <!--<i class="fa fa-plus fa-3x"></i>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<img src="img/portfolio/escape.png" class="img-responsive" alt="">-->
+            <!--</a>-->
+            <!--<div class="portfolio-caption">-->
+            <!--<h4>Escape</h4>-->
+            <!--<p class="text-muted">Website Design</p>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-md-4 col-sm-6 portfolio-item">-->
+            <!--<a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">-->
+            <!--<div class="portfolio-hover">-->
+            <!--<div class="portfolio-hover-content">-->
+            <!--<i class="fa fa-plus fa-3x"></i>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<img src="img/portfolio/dreams.png" class="img-responsive" alt="">-->
+            <!--</a>-->
+            <!--<div class="portfolio-caption">-->
+            <!--<h4>Dreams</h4>-->
+            <!--<p class="text-muted">Website Design</p>-->
+            <!--</div>-->
+            <!--</div>-->
         </div>
     </div>
 </section>
-
 <!-- About Section -->
 <section id="aboutDiv">
     <div class="container">
@@ -277,7 +279,7 @@
                     <li>
                         <div class="timeline-image">
                             <img class="img-circle img-responsive" src="img/about/1.jpg" alt="">
-                            </div>
+                        </div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
                                 <h4>2009-2011</h4>
@@ -290,12 +292,12 @@
                                     sit
                                     vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
                             </div>
-                            </div>
+                        </div>
                     </li>
                     <li class="timeline-inverted">
                         <div class="timeline-image">
                             <img class="img-circle img-responsive" src="img/about/2.jpg" alt="">
-                            </div>
+                        </div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
                                 <h4>March 2011</h4>
@@ -308,7 +310,7 @@
                                     sit
                                     vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
                             </div>
-                            </div>
+                        </div>
                     </li>
                     <li>
                         <div class="timeline-image">
@@ -355,80 +357,15 @@
                     </li>
                 </ul>
             </div>
-            </div>
-        </div>
-</section>
-
-<!-- Team Section -->
-<section id="team" class="bg-light-gray">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2 class="section-heading">Our Amazing Team</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="team-member">
-                    <img src="img/team/1.jpg" class="img-responsive img-circle" alt="">
-                    <h4>Kay Garland</h4>
-                    <p class="text-muted">Lead Designer</p>
-                    <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="team-member">
-                    <img src="img/team/2.jpg" class="img-responsive img-circle" alt="">
-                    <h4>Larry Parker</h4>
-                    <p class="text-muted">Lead Marketer</p>
-                    <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="team-member">
-                    <img src="img/team/3.jpg" class="img-responsive img-circle" alt="">
-                    <h4>Diana Pertersen</h4>
-                    <p class="text-muted">Lead Developer</p>
-                    <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 text-center">
-                <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque,
-                    laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
-            </div>
         </div>
     </div>
 </section>
 
 <!-- Clients Aside -->
 <section id="account" class="bg-light-gray">
-    <div ng-controller="AccountController">
+    <!--<div ng-controller="AccountController">-->
 
-
+    <div>
         <div class="container">
 
             <ul class="nav nav-tabs">
@@ -687,33 +624,6 @@
     </div>
 
 </section>
-<!--<aside class="clients">-->
-<!--<div class="container">-->
-<!--<div class="row">-->
-<!--<div class="col-md-3 col-sm-6">-->
-<!--<a href="#">-->
-<!--<img src="img/logos/envato.jpg" class="img-responsive img-centered" alt="">-->
-<!--</a>-->
-<!--</div>-->
-<!--<div class="col-md-3 col-sm-6">-->
-<!--<a href="#">-->
-<!--<img src="img/logos/designmodo.jpg" class="img-responsive img-centered" alt="">-->
-<!--</a>-->
-<!--</div>-->
-<!--<div class="col-md-3 col-sm-6">-->
-<!--<a href="#">-->
-<!--<img src="img/logos/themeforest.jpg" class="img-responsive img-centered" alt="">-->
-<!--</a>-->
-<!--</div>-->
-<!--<div class="col-md-3 col-sm-6">-->
-<!--<a href="#">-->
-<!--<img src="img/logos/creative-market.jpg" class="img-responsive img-centered" alt="">-->
-<!--</a>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</aside>-->
-
 
 <section id="contact">
     <div class="container" ng-controller="SendMessageController">
@@ -722,7 +632,7 @@
                 <h2 class="section-heading">Contact Us</h2>
                 <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
             </div>
-            </div>
+        </div>
         <div class="row">
             <div class="col-lg-12">
                 <form name="sentMessage" id="contactForm" novalidate>
@@ -746,7 +656,7 @@
                             <!--data-validation-required-message="Please enter your phone number.">-->
                             <!--<p class="help-block text-danger"></p>-->
                             <!--</div>-->
-                            </div>
+                        </div>
                         <div class="col-md-6">
                             <div class="form-group">
 <textarea class="form-control" placeholder="Your Message *" id="message" required
@@ -754,17 +664,17 @@
           ng-model="messageOfMessage"></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
-                            </div>
+                        </div>
                         <div class="clearfix"></div>
                         <div class="col-lg-12 text-center">
                             <div></div>
                             <button type="submit" class="btn btn-xl" ng-click="sendMessage()">Send Message</button>
-                            </div>
                         </div>
+                    </div>
                 </form>
             </div>
-            </div>
         </div>
+    </div>
 </section>
 
 
@@ -792,12 +702,116 @@
                     </li>
                 </ul>
             </div>
-            </div>
         </div>
+    </div>
 </footer>
 
 <!-- Portfolio Modals -->
 <!-- Use the modals below to showcase details about your portfolio projects! -->
+
+
+<!--Logowanie-->
+<div class="portfolio-modal modal fade" id="signUp" tabindex="-1" role="dialog" aria-hidden="true">
+
+
+    <div ng-controller="RegisterController">
+
+
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div>
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+
+
+                                <div class="bgform">
+                                    <form>
+                                        <div class="form-group">
+                                            <h2>Sign Up</h2>
+                                            <p> It’s free and always will be.</p>
+                                            <hr class="colorgraph">
+                                            <br/>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-6">
+
+                                                    <input type="text" class="form-control" id="firstNameOfUser"
+                                                           placeholder="First name" ng-model="firstNameOfUser"/>
+
+                                                </div>
+                                                <div class="col-md-6">
+
+                                                    <input type="text" name="lastname" class="form-control"
+                                                           id="lastNameOfUser"
+                                                           placeholder="Last name"
+                                                           ng-model="lastNameOfUser" required/>
+
+
+                                                </div>
+                                            </div>
+                                            <br/>
+                                            <div class="input-group">
+
+
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                                <input type="text" class="form-control" id="emailOfUser"
+                                                       placeholder="Email"
+                                                       ng-model="emailOfUser"/>
+
+
+                                            </div>
+
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                                <input type="password" class="form-control" id="passwordOfUser"
+                                                       placeholder="Password"
+                                                       ng-model="passwordOfUser"/>
+                                            </div>
+                                            <br/>
+
+
+                                            <div>
+                                                <input type="password" class="form-control" id="repassword"
+                                                       placeholder="Re-enter password"/>
+                                            </div>
+                                            <!--<br/>-->
+                                        </div>
+                                        <div class="form-group">
+
+                                            <div>
+                                                <button type="submit" value="Submit"
+                                                        class="btn btn-success glyphicon glyphicon-user col-sm-6"
+                                                        ng-click="saveUser()">
+                                                    Create
+                                                </button>
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i
+                                                        class="fa fa-times"></i> Close Project
+                                                </button>
+                                            </div>
+
+                                        </div>
+                                    </form>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <!-- Portfolio Modal 1 -->
 <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
@@ -807,8 +821,8 @@
                 <div class="lr">
                     <div class="rl">
                     </div>
-                    </div>
                 </div>
+            </div>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
@@ -838,12 +852,12 @@
                                     class="fa fa-times"></i> Close Project
                             </button>
                         </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 <!-- Portfolio Modal 2 -->
 <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
@@ -853,8 +867,8 @@
                 <div class="lr">
                     <div class="rl">
                     </div>
-                    </div>
                 </div>
+            </div>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
@@ -880,12 +894,12 @@
                                     class="fa fa-times"></i> Close Project
                             </button>
                         </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 <!-- Portfolio Modal 3 -->
 <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
@@ -895,8 +909,8 @@
                 <div class="lr">
                     <div class="rl">
                     </div>
-                    </div>
                 </div>
+            </div>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
@@ -919,12 +933,12 @@
                                     class="fa fa-times"></i> Close Project
                             </button>
                         </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 <!-- Portfolio Modal 4 -->
 <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
@@ -934,8 +948,8 @@
                 <div class="lr">
                     <div class="rl">
                     </div>
-                    </div>
                 </div>
+            </div>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
@@ -959,12 +973,12 @@
                                     class="fa fa-times"></i> Close Project
                             </button>
                         </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 <!-- Portfolio Modal 5 -->
 <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
@@ -974,8 +988,8 @@
                 <div class="lr">
                     <div class="rl">
                     </div>
-                    </div>
                 </div>
+            </div>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
@@ -998,12 +1012,12 @@
                                     class="fa fa-times"></i> Close Project
                             </button>
                         </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 <!-- Portfolio Modal 6 -->
 <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
@@ -1013,8 +1027,8 @@
                 <div class="lr">
                     <div class="rl">
                     </div>
-                    </div>
                 </div>
+            </div>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
@@ -1036,12 +1050,12 @@
                                     class="fa fa-times"></i> Close Project
                             </button>
                         </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 <!-- jQuery -->
 <script src="vendor/jquery/jquery.min.js"></script>
