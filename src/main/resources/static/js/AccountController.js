@@ -3,7 +3,17 @@ angular.module('myApp').controller('AccountController', function ($scope, $resou
         $scope.message = 'Hello  ';
         // $scope.user;
         // $scope.id;
-        // $scope.zalogowany="";
+    $scope.zalogowany = "";
+    $scope.showMe = false;
+
+    $scope.myFunc = function () {
+        $scope.showMe = true;
+
+    }
+
+
+
+
 
     var getZalogowany = function () {
         var User = $resource('user/current.json', {}, {
@@ -11,17 +21,14 @@ angular.module('myApp').controller('AccountController', function ($scope, $resou
         });
         User.query(function (response) {
             $scope.myemail = response.email;
-            alert(zalogowany);
+            $scope.myFunc();
         });
     };
     getZalogowany();
 
-        $scope.showMe = false;
-        $scope.dajId = function (id) {
+
+    $scope.dajId = function (id) {
             alert(id);
-        }
-        $scope.myFunc = function () {
-            $scope.showMe = true;
         }
 
 
@@ -110,12 +117,7 @@ angular.module('myApp').controller('AccountController', function ($scope, $resou
                 password: $scope.password,
                 salary: $scope.salary,
             };
-            // var url = 'user/edit/' + $scope.id;
-            // $http.post(url, testObj).success(function () {
-            //     alert('User został zmodyfikowany');
-            // }).error(function () {
-            //     alert('Nie udało się zmienić danych!');
-            // })
+
             var url = 'user/put/' + $scope.id;
             $http.post(url, testObj).success(function () {
                 alert('User został zmodyfikowany');
