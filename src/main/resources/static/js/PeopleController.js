@@ -5,8 +5,6 @@ angular.module('myApp').controller('PeopleController', function ($scope, $resour
     $scope.message = 'Hello from PeopleController';
     $scope.user;
 
-    //$resource("../rest/api"}).get(); return an object.
-    //$resource("../rest/api").query(); return an array.
 
     var loadAllPeopleFromDb = function () {
         var User = $resource('user/all', {}, {
@@ -22,14 +20,6 @@ angular.module('myApp').controller('PeopleController', function ($scope, $resour
 
 
 
-
-
-    //$scope.people = $resource('/person/all', []).get(); //to da undefined bo nie zdazyl jeszcze pobrac
-    //alert($scope.people.size);
-    //scope.cos = dajesz wtedy gdy chcesz miec dostep do czegos w pliku html w widoku i zbindowac na przyklad
-
-
-
     //Zapis osoby do bazy danych
     $scope.savePerson = function () {
         var firstName = $scope.firstNameOfUser; //pobieramy imie z pola w html
@@ -38,8 +28,6 @@ angular.module('myApp').controller('PeopleController', function ($scope, $resour
         var password = $scope.passwordOfUser;
         var salary = $scope.salaryOfUser;
 
-        //alert(name); //to tylko dla testu czy dane sie pobieraja, w google chrome ctrl+shif j otwiera conosle do debuga
-        //degug //tak sie wlacza debugger w js
 
         //Potrzebujemy stworzyc nasz obiekt, ktorego zadamy w Javie patrz RequestBody
         var userObject = {

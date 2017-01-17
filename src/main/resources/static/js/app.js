@@ -10,10 +10,7 @@ myApp.config(function ($routeProvider) {
             controller: 'SurveysController'
         })
 
-        // .when('/home', {
-        //     templateUrl: 'views/home.html',
-        //     controller: 'SurveysController'
-        // })
+
         .when('/sign', {
             templateUrl: 'views/register.html',
             controller: 'RegisterController'
@@ -23,10 +20,7 @@ myApp.config(function ($routeProvider) {
             controller: 'LoginController'
         })
 
-        // .when('/about', {// ok
-        //     templateUrl: 'views/about.html',
-        //     controller: 'AboutController'
-        // })
+
         .when('/sendMassage', {//ok
             templateUrl: 'views/sendMessage.html',
             controller: 'SendMessageController'

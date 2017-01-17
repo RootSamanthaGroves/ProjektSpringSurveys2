@@ -23,8 +23,8 @@ public class UserRepository {
     private EntityManager entityManager;
 
     @Transactional
-    public void save(User person) {
-        entityManager.persist(person);
+    public void save(User u) {
+        entityManager.persist(u);
     }
 
     public List<User> findAll() {

@@ -42,6 +42,7 @@ angular.module('myApp').controller('CreateSurveyController', function ($scope, $
         alert(userObject.firstName+userObject.email);
         $http.post('/survey/add',userObject).success(function () { //wywloujemy
             alert('Thanks');
+            // $scope.$emit("myEvent");
 
         }).error(function () {
             alert('We have problem!');

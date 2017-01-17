@@ -34,16 +34,21 @@ import java.util.List;
         }
 
 
+//    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
+//    @PostMapping("/add")
+//    public ResponseEntity<Survey> postSurvey(@RequestBody Survey survey) {
+//        surveyRepository.save(survey);
+//        if (survey.getId() != 0)
+//            return ResponseEntity.ok(survey);
+//        return new ResponseEntity(HttpStatus.BAD_REQUEST);
+//    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
     @PostMapping("/add")
     public ResponseEntity<Survey> postSurvey(@RequestBody Survey survey) {
         surveyRepository.save(survey);
-        if (survey.getId() != 0)
-            return ResponseEntity.ok(survey);
-        return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        return ResponseEntity.ok(survey);
     }
-
-
 
 
 }
