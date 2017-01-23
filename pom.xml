@@ -6,7 +6,7 @@
 	<groupId>com.dominika</groupId>
 	<artifactId>projekt-spring-surveys-2</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+    <packaging>war</packaging>
 
 	<name>Projekt Spring Surveys 2</name>
 	<description>Demo project for Spring Boot</description>

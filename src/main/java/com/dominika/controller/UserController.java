@@ -55,7 +55,7 @@ public class UserController {
     public ResponseEntity<User> postUser(@RequestBody User user) {
         user.setRole(Role.ROLE_USER);
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        user.setPassword(encoder.encode("user"));
+        user.setPassword(encoder.encode(user.getPassword()));
         userRepository.save(user);
         return ResponseEntity.ok(user);
     }

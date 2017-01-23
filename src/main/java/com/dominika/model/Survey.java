@@ -16,7 +16,7 @@ public class Survey {
     private String title;
 
     @ManyToMany
-    private List<Question> guestion;
+    private List<Question> question;
 
 //    @ManyToMany(mappedBy = "user")
 //    private List<User> user;
@@ -24,9 +24,9 @@ public class Survey {
     public Survey() {
     }
 
-    public Survey(String title, List<Question> guestion) {
+    public Survey(String title, List<Question> question) {
         this.title = title;
-        this.guestion = guestion;
+        this.question = question;
 
     }
 
@@ -38,12 +38,12 @@ public class Survey {
         return title;
     }
 
-    public List<Question> getGuestion() {
-        return guestion;
+    public List<Question> getQuestion() {
+        return question;
     }
 
-    public void setGuestion(List<Question> guestion) {
-        this.guestion = guestion;
+    public void setQuestion(List<Question> guestion) {
+        this.question = guestion;
     }
 
     public void setTitle(String title) {

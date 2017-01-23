@@ -35,12 +35,12 @@ angular.module('myApp').controller('CreateSurveyController', function ($scope, $
         alert(Title);
 
 
-        var userObject = {
+        var surveyObject = {
             title: Title
         };
 
-        alert(userObject.firstName+userObject.email);
-        $http.post('/survey/add',userObject).success(function () { //wywloujemy
+
+        $http.post('/survey/add', surveyObjectt).success(function () { //wywloujemy
             alert('Thanks');
             // $scope.$emit("myEvent");
 

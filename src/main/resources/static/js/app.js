@@ -1,5 +1,5 @@
 // create the module and name it scotchApp
-var myApp = angular.module('myApp', ['ngRoute', 'ngResource', 'ui.bootstrap']);
+var myApp = angular.module('myApp', ['ngRoute', 'ngResource', 'ui.bootstrap', 'ngStorage']);
 
 
 myApp.config(function ($routeProvider) {
@@ -29,6 +29,10 @@ myApp.config(function ($routeProvider) {
             templateUrl: 'views/account.html',
             controller: 'AccountController'
         })
+        // .when('/home', {
+        //     templateUrl: 'views/accou.html',
+        //     controller: 'home'
+        // })
         .when('/questions/:id', {
             templateUrl: 'views/questionsr.html',
             controller: 'SurveysController'

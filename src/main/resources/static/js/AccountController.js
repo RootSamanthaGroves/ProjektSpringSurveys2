@@ -1,18 +1,14 @@
-
-angular.module('myApp').controller('AccountController', function ($scope, $resource, $http) {
+angular.module('myApp').controller('AccountController', function ($scope, $resource, $http, $localStorage) {
         $scope.message = 'Hello  ';
-        // $scope.user;
-        // $scope.id;
+    $scope.email;
     $scope.zalogowany = "";
-    $scope.showMe = false;
 
+    $scope.showMe = false;
+    // $scope.isLogin = $localStorage.isLogin;
     $scope.myFunc = function () {
         $scope.showMe = true;
 
     }
-
-
-
 
 
     var getZalogowany = function () {
@@ -32,18 +28,15 @@ angular.module('myApp').controller('AccountController', function ($scope, $resou
         }
 
 
-
-
-
     $scope.loadMyDate = function () {
         alert("dsfdgdfg");// teraz w response masz to co bys widzial w postmanie takiego jsona
         $scope.myemail = "zzzzzzzz";
-             var User = $resource('user/current', {}, {
+        var User = $resource('user/current', {}, {
             query: {method: 'get', isArray: true, cancellable: true}
         });
 
         User.query(function (response) {
-          //  alert("hghh");// teraz w response masz to co bys widzial w postmanie takiego jsona
+            //  alert("hghh");// teraz w response masz to co bys widzial w postmanie takiego jsona
             $scope.myemail = response;
         });
 
@@ -63,7 +56,7 @@ angular.module('myApp').controller('AccountController', function ($scope, $resou
         loadAllPeopleFromDb();
 
 
-        var loadOneUserFromDb = function (id) {
+    $scope.loadOneUserFromDb = function (id) {
             var User = $resource('user/id' + id, {}, {
                 query: {method: 'get', isArray: true, cancellable: true}
             });
@@ -73,7 +66,7 @@ angular.module('myApp').controller('AccountController', function ($scope, $resou
                 $scope.user = response; // widoku będziesz używał teraz people
             });
         };
-        loadOneUserFromDb();
+    // loadOneUserFromDb();
 
         //Delete a person
         $scope.delete = function (Id) {
