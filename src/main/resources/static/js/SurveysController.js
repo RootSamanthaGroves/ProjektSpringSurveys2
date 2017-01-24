@@ -6,8 +6,17 @@ angular.module('myApp').controller('SurveysController', function ($scope, $resou
     $scope.survey;
     $scope.idSurvey;
     $scope.ankietka;
+    $scope.questions;
 
-
+    var loadAllQuestionFromDb = function () {
+        var Survey = $resource('question/all', {}, {
+            query: {method: 'get', isArray: true, cancellable: true}
+        });
+        Survey.query(function (response) {
+            $scope.questions = response;
+        });
+    };
+    loadAllQuestionFromDb();
 
     $rootScope.loadAllSurveyFromDb = function () {
         var Survey = $resource('survey/all', {}, {
@@ -59,16 +68,10 @@ angular.module('myApp').controller('SurveysController', function ($scope, $resou
 
     $scope.saveSurvey = function () {
         var title = $scope.titleOfSurvey; //pobieramy imie z pola w html
-
-
         alert(title);
-
-
         var titleObj = {
             title: title
-
         };
-
         $http.post('/survey/add', titleObj).success(function () { //wywloujemy
             alert('Survey add' + titleObj);
             $rootScope.loadAllSurveyFromDb();
@@ -78,7 +81,6 @@ angular.module('myApp').controller('SurveysController', function ($scope, $resou
     };
 
     $scope.loadOneSurvey = function (id) {
-
         $scope.idSurvey = id;
         alert("jestem w finf one" + $scope.idSurvey);
         SurveyService
@@ -87,9 +89,23 @@ angular.module('myApp').controller('SurveysController', function ($scope, $resou
                 if (response.status == 200) {
                     $scope.ankietka = response.data;
                     // alert($scope.ankietka);
-
                 }
             })
+    };
+
+    $scope.saveQuestion = function () {
+        var Question = $scope.questionOfSurvey;
+        alert($scope.questionOfSurvey);
+        var questionObject = {
+            question: Question
+        };
+        $http.post('/question/add', questionObject).success(function () { //wywloujemy
+            alert('Thanks');
+            loadAllQuestionFromDb();
+            // $scope.$emit("myEvent");
+        }).error(function () {
+            alert('We have problem2!');
+        })
     };
 
 

@@ -29,14 +29,12 @@ angular.module('myApp').controller('AccountController', function ($scope, $resou
 
 
     $scope.loadMyDate = function () {
-        alert("dsfdgdfg");// teraz w response masz to co bys widzial w postmanie takiego jsona
-        $scope.myemail = "zzzzzzzz";
         var User = $resource('user/current', {}, {
             query: {method: 'get', isArray: true, cancellable: true}
         });
 
         User.query(function (response) {
-            //  alert("hghh");// teraz w response masz to co bys widzial w postmanie takiego jsona
+
             $scope.myemail = response;
         });
 
@@ -49,7 +47,7 @@ angular.module('myApp').controller('AccountController', function ($scope, $resou
                 query: {method: 'get', isArray: true, cancellable: true}
             });
             User.query(function (response) {
-                //alert(response); teraz w response masz to co bys widzial w postmanie takiego jsona
+                //alert(response);
                 $scope.user = response;
             });
         };
@@ -62,8 +60,8 @@ angular.module('myApp').controller('AccountController', function ($scope, $resou
             });
 
             User.query(function (response) {
-                //alert(response); teraz w response masz to co bys widzial w postmanie takiego jsona
-                $scope.user = response; // widoku będziesz używał teraz people
+
+                $scope.user = response;
             });
         };
     // loadOneUserFromDb();

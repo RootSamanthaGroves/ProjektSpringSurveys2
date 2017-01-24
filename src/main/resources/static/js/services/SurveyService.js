@@ -4,11 +4,12 @@
 
 angular.module('myApp').service('SurveyService', function ($resource, $http) {
 
+
     this.findOneSurvey = function (id) {
-        // alert(id);
         var URL = "survey/id/" + id;
         return $http({
-                method: "GET",
+
+            method: "GET",
                 url: URL
             }
         ).then(function successCallBack(response) {
