@@ -1,3 +1,6 @@
+/**
+ * Created by Dominika on 2017-01-07.
+ */
 package com.dominika.controller;
 
 import com.dominika.model.Survey;
@@ -12,12 +15,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Created by Dominika on 2017-01-07.
- */
 
-
-    @RestController
+@RestController
     @RequestMapping("survey")
 
     public class SurveyController {
@@ -27,7 +26,6 @@ import java.util.Optional;
 
 
         @GetMapping("all")
-        //ta metoda nie moze byc prywatna bo wtedy @Preatuhroize nie dziala
         public ResponseEntity<?> getAll() {
             List<Survey> surveysList = surveyRepository.findAll();
             if (surveysList.isEmpty())
@@ -35,15 +33,6 @@ import java.util.Optional;
             return ResponseEntity.ok(surveysList);
         }
 
-
-//    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
-//    @PostMapping("/add")
-//    public ResponseEntity<Survey> postSurvey(@RequestBody Survey survey) {
-//        surveyRepository.save(survey);
-//        if (survey.getId() != 0)
-//            return ResponseEntity.ok(survey);
-//        return new ResponseEntity(HttpStatus.BAD_REQUEST);
-//    }
 
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
     @PostMapping("/add")

@@ -1,3 +1,7 @@
+/**
+ * Created by Dominika on 2016-12-14.
+ */
+
 package com.dominika.controller;
 
 import com.dominika.model.Role;
@@ -16,9 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Created by Dominika on 2016-12-14.
- */
+
 //@Controller
 //@RequestMapping
 @RestController

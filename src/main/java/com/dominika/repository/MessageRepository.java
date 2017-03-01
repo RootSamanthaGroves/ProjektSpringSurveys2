@@ -1,3 +1,6 @@
+/**
+ * Created by Dominika on 2017-01-08.
+ */
 package com.dominika.repository;
 
 import com.dominika.model.Message;
@@ -12,9 +15,6 @@ import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import java.util.List;
 
-/**
- * Created by Dominika on 2017-01-08.
- */
 
 @Repository
 public class MessageRepository {
