@@ -19,19 +19,19 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
-public class QuestionRepository {
+public class AnswerRepository {
 
 
         @PersistenceContext
         private EntityManager entityManager;
 
         @Transactional
-        public void save(Question q) {
-            entityManager.persist(q);
+        public void save(Answer a) {
+            entityManager.persist(a);
         }
 
-        public List<Question> findAll() {
-            TypedQuery<Question> query = entityManager.createQuery("select q from Question q", Question.class);
+        public List<Answer> findAll() {
+            TypedQuery<Answer> query = entityManager.createQuery("select a from Answer a", Answer.class);
             return query.getResultList();
         }
 
@@ -39,42 +39,42 @@ public class QuestionRepository {
         @Transactional
         public ResponseEntity removeOne(long id) {
 
-           Question q = entityManager.find(Question.class, id);
-            if (q == null) {
+           Answer a= entityManager.find(Answer.class, id);
+            if (a == null) {
                 return new ResponseEntity(new HttpHeaders(), HttpStatus.BAD_REQUEST);
             } else {
-                entityManager.remove(q);
-                return new ResponseEntity(q, new HttpHeaders(), HttpStatus.BAD_REQUEST);
+                entityManager.remove(a);
+                return new ResponseEntity(a, new HttpHeaders(), HttpStatus.BAD_REQUEST);
             }
 
         }
 
         @Transactional
-        public Question findOne(long id) {
-            Question q = entityManager.find(Question.class, id);
-            return q;
+        public Answer findOne(long id) {
+           Answer a = entityManager.find(Answer.class, id);
+            return a;
         }
 
 
 
 
         @Transactional
-        public Question update(long id, Question q) {
-            Question question = entityManager.find(Question.class, id);
+        public Answer update(long id, Answer a) {
+            Answer answer = entityManager.find(Answer.class, id);
 
-            if (!q.getQuestion().isEmpty()) {
-                question.setQuestion(q.getQuestion());
+            if (!a.getAnswer().isEmpty()) {
+                answer.setAnswer(a.getAnswer());
             }
 
-            if (!q.getAnswers().isEmpty()) {
-                question.setAnswers(q.getAnswers());
+            if (!a.getAnswer().isEmpty()) {
+                answer.setAnswer(a.getAnswer());
             }
 
 
-            entityManager.merge(question);
+            entityManager.merge(answer);
 
 
-            return question;
+            return answer;
 
         }
 

@@ -7,6 +7,7 @@ angular.module('myApp').controller('SurveysController', function ($scope, $resou
     $scope.idSurvey;
     $scope.ankietka;
     $scope.questions;
+    $scope.answer;
 
     var loadAllQuestionFromDb = function () {
         var Survey = $resource('question/all', {}, {
@@ -66,6 +67,25 @@ angular.module('myApp').controller('SurveysController', function ($scope, $resou
             });
     }
 
+    $scope.showAnswer = function (id) {
+        alert("The Survey Deleted Successfully!!! Please refresh the page ");
+
+        $http({
+            method: 'GET',
+            url: '/answer/id/' + id
+        }).success(function (data) {
+            //Showing Success message
+            $scope.status = "The Survey Deleted Successfully!!!";
+            alert('Pobieranie jednej odpoweidzi');
+
+        })
+            .error(function (error) {
+                //Showing error message
+                $scope.status = 'Unable to delete a person: ' + error.message;
+            });
+    }
+
+
     $scope.saveSurvey = function () {
         var title = $scope.titleOfSurvey; //pobieramy imie z pola w html
         alert(title);
@@ -107,6 +127,22 @@ angular.module('myApp').controller('SurveysController', function ($scope, $resou
             alert('We have problem2!');
         })
     };
+
+    $scope.saveAnswer= function () {
+        var Answer = $scope.answerOfSurvey;
+        alert($scope.answerOfSurvey);
+        var answerObject = {
+            answer: Answer
+        };
+        $http.post('/answer/add', answerObject).success(function () { //wywloujemy
+            alert('Thanks');
+            loadAllQuestionFromDb();
+            // $scope.$emit("myEvent");
+        }).error(function () {
+            alert('We have problem2!');
+        })
+    };
+
 
 
 })
