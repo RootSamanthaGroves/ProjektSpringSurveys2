@@ -19,6 +19,18 @@ angular.module('myApp').controller('SurveysController', function ($scope, $resou
     };
     loadAllQuestionFromDb();
 
+
+    var loadAllAnswersFromDb = function () {
+        var Survey = $resource('answer/all', {}, {
+            query: {method: 'get', isArray: true, cancellable: true}
+        });
+        Survey.query(function (response) {
+            $scope.answer = response;
+        });
+    };
+    loadAllAnswersFromDb();
+
+
     $rootScope.loadAllSurveyFromDb = function () {
         var Survey = $resource('survey/all', {}, {
             query: {method: 'get', isArray: true, cancellable: true}
@@ -50,7 +62,7 @@ angular.module('myApp').controller('SurveysController', function ($scope, $resou
     }
 
     $scope.showQuestion = function (id) {
-        alert("The Survey Deleted Successfully!!! Please refresh the page ");
+
 
         $http({
             method: 'GET',
@@ -66,9 +78,8 @@ angular.module('myApp').controller('SurveysController', function ($scope, $resou
                 $scope.status = 'Unable to delete a person: ' + error.message;
             });
     }
+    $rootScope.showAnswer = function (id) {
 
-    $scope.showAnswer = function (id) {
-        alert("The Survey Deleted Successfully!!! Please refresh the page ");
 
         $http({
             method: 'GET',
@@ -115,12 +126,12 @@ angular.module('myApp').controller('SurveysController', function ($scope, $resou
 
     $scope.saveQuestion = function () {
         var Question = $scope.questionOfSurvey;
-        alert($scope.questionOfSurvey);
+        // alert($scope.questionOfSurvey);
         var questionObject = {
             question: Question
         };
         $http.post('/question/add', questionObject).success(function () { //wywloujemy
-            alert('Thanks');
+            // alert('Thanks');
             loadAllQuestionFromDb();
             // $scope.$emit("myEvent");
         }).error(function () {
@@ -130,19 +141,36 @@ angular.module('myApp').controller('SurveysController', function ($scope, $resou
 
     $scope.saveAnswer= function () {
         var Answer = $scope.answerOfSurvey;
-        alert($scope.answerOfSurvey);
+        // alert($scope.answerOfSurvey);
         var answerObject = {
             answer: Answer
         };
         $http.post('/answer/add', answerObject).success(function () { //wywloujemy
-            alert('Thanks');
-            loadAllQuestionFromDb();
+            // alert('Thanks');
+            loadAllAnswersFromDb();
             // $scope.$emit("myEvent");
         }).error(function () {
             alert('We have problem2!');
         })
     };
 
+
+    $scope.selectAandQ= function () {
+        var Q = $scope.numberOfQuestion;
+         alert($scope.numberOfQuestion);
+        var QObject = {
+            numbelQuestion: Q
+        };
+
+        alert('QObject!');
+        // $http.post('/answer/add', answerObject).success(function () { //wywloujemy
+        //     // alert('Thanks');
+        //     loadAllAnswersFromDb();
+        //     // $scope.$emit("myEvent");
+        // }).error(function () {
+        //     alert('We have problem!');
+        // })
+    };
 
 
 })
