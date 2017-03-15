@@ -1,13 +1,59 @@
 /**
  * Created byDominika on 24.11.2016.
  */
-angular.module('myApp').controller('SurveysController', function ($scope, $resource, $http, $rootScope, SurveyService) {
+angular.module('myApp').controller('SurveysController', function ($scope, $resource, $http, $rootScope, $routeParams, SurveyService) {
     $scope.message = 'Hello from PeopleController';
     $scope.survey;
     $scope.idSurvey;
     $scope.ankietka;
     $scope.questions;
     $scope.answer;
+    $scope.question;
+
+    $scope.testowy = 56;
+    $scope.items = [];
+    $scope.selected = [];
+
+    $scope.toggle = function (item, list) {
+        var idx = list.indexOf(item);
+        if (idx > -1) {
+            list.splice(idx, 1);
+        }
+        else {
+            list.push(item);
+        }
+    };
+
+    $scope.exists = function (item, list) {
+        return list.indexOf(item) > -1;
+    };
+
+
+    $scope.saveRelations = function () {
+        //alert($scope.selected + " " + $scope.question);
+        console.log($scope.selected + " " + $scope.question);
+
+/*        var selectedObject = {
+            selected: $scope.selected
+        };*/
+
+        var questionObject = {
+            question: $scope.question,
+            answers: $scope.selected
+        };
+
+        $http.post('/question/put/'+ $routeParams.id ,  questionObject).success(function () { //wywloujemy
+            alert('Thanks');
+            loadAllQuestionFromDb();
+
+            // for(var i = 0; questionObject.length(); i++){
+            //     console.log(questionObject.answers[i].answer);
+            // }
+
+        }).error(function () {
+            alert("nie udało się ")
+        })
+    };
 
     var loadAllQuestionFromDb = function () {
         var Survey = $resource('question/all', {}, {
@@ -85,7 +131,6 @@ angular.module('myApp').controller('SurveysController', function ($scope, $resou
             method: 'GET',
             url: '/answer/id/' + id
         }).success(function (data) {
-            //Showing Success message
             $scope.status = "The Survey Deleted Successfully!!!";
             alert('Pobieranie jednej odpoweidzi');
 
@@ -133,13 +178,12 @@ angular.module('myApp').controller('SurveysController', function ($scope, $resou
         $http.post('/question/add', questionObject).success(function () { //wywloujemy
             // alert('Thanks');
             loadAllQuestionFromDb();
-            // $scope.$emit("myEvent");
         }).error(function () {
             alert('We have problem2!');
         })
     };
 
-    $scope.saveAnswer= function () {
+    $scope.saveAnswer = function () {
         var Answer = $scope.answerOfSurvey;
         // alert($scope.answerOfSurvey);
         var answerObject = {
@@ -148,35 +192,16 @@ angular.module('myApp').controller('SurveysController', function ($scope, $resou
         $http.post('/answer/add', answerObject).success(function () { //wywloujemy
             // alert('Thanks');
             loadAllAnswersFromDb();
-            // $scope.$emit("myEvent");
         }).error(function () {
             alert('We have problem2!');
         })
     };
 
 
-    $scope.selectAandQ= function () {
-        var Q = $scope.numberOfQuestion;
-         alert($scope.numberOfQuestion);
-        var QObject = {
-            numbelQuestion: Q
-        };
-
-        alert('QObject!');
-        // $http.post('/answer/add', answerObject).success(function () { //wywloujemy
-        //     // alert('Thanks');
-        //     loadAllAnswersFromDb();
-        //     // $scope.$emit("myEvent");
-        // }).error(function () {
-        //     alert('We have problem!');
-        // })
+    $scope.selectQ = function (id) {
+        $scope.question = 0;
+        $scope.question = id;
+        $routeParams.id = id;
     };
-
-
 })
-// .service('myService', function(){
-//
-//     this.ankietka= {ankietka2:[]};
-// })
-
 ;

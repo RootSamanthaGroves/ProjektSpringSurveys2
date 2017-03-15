@@ -126,7 +126,7 @@
         <div class="intro-text">
             <div class="intro-lead-in">Welcome on Our Site!</div>
             <div class="intro-heading">It's nice that you visited us</div>
-            <li ng-if="!email">  <a  href="/login" class="page-scroll btn btn-xl">Sign In</a></li>
+            <li ng-if="!email"><a href="/login" class="page-scroll btn btn-xl">Sign In</a></li>
         </div>
     </div>
 </header>
@@ -337,7 +337,7 @@
 
         <ul class="nav nav-tabs">
 
-            <li ><a data-toggle="tab" href="#createSurvey">New Survey</a></li>
+            <li><a data-toggle="tab" href="#createSurvey">New Survey</a></li>
             <li><a data-toggle="tab" href="#deleteSurvey">Delete Survey</a></li>
             <li><a data-toggle="tab" href="#messageToMe">Message</a></li>
             <li class="active"><a data-toggle="tab" href="#users">Users</a></li>
@@ -347,148 +347,167 @@
         <div>
             <div class="tab-content">
                 <div id="createSurvey" class="tab-pane fade">
-                <h3></h3>
-                <p></p>
-                <div class="createSurvey" ng-controller="SurveysController">
-                    <div class="container ">
-                        <div class="row ">
-                            <div class="col-md-1">
-                            </div>
-                            <div class="bgform">
-                                <div class="col-md-10">
-                                    <div>
-                                        <br/>
-                                        <br/>
-                                        <br/>
-                                        <div class="bgform">
-                                            <div class="form-group">
-                                                <h2>Create survey</h2>
-                                                <hr class="colorgraph" align="center">
-                                                <br/>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="row">
-                                                    <div  class="col-md-12 col-sm-12">
-                                                        <label>Title:</label>
-                                                        <input type="text" class="form-control"
-                                                               id="titleOfSurvey"
-                                                               placeholder="Title"
-                                                               ng-model="titleOfSurvey"/>
-                                                    </div>
+                    <h3></h3>
+                    <p></p>
+                    <div class="createSurvey" ng-controller="SurveysController">
+                        <div class="container ">
+                            <div class="row ">
+                                <div class="col-md-1">
+                                </div>
+                                <div class="bgform">
+                                    <div class="col-md-10">
+                                        <div>
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <div class="bgform">
+                                                <div class="form-group">
+                                                    <h2>Create survey</h2>
+                                                    <hr class="colorgraph" align="center">
+                                                    <br/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col-md-12 col-sm-12">
+                                                            <label>Title:</label>
+                                                            <input type="text" class="form-control"
+                                                                   id="titleOfSurvey"
+                                                                   placeholder="Title"
+                                                                   ng-model="titleOfSurvey"/>
+                                                        </div>
 
-                                                    <div  class="col-md-12 col-sm-12">
+                                                        <div class="col-md-12 col-sm-12">
+                                                            </br>
+
+                                                            <button type="button" class="btn btn-warning" id="addSurvey"
+                                                                    ng-click="saveSurvey()"> Add
+                                                                survey
+                                                            </button>
+                                                        </div>
+
+                                                    </div>
+                                                    <br/>
+                                                </div>
+
+
+                                                <div class="col-md-12 col-sm-12">
+                                                    <div class="row">
+                                                        <div class="col-md-6 col-sm-6">
+                                                            <hr class="colorgraph">
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <label>Question:</label>
+                                                                        <input type="text" class="form-control"
+                                                                               id="questionOfSurvey"
+                                                                               placeholder="Question"
+                                                                               ng-model="questionOfSurvey"/>
+
+                                                                    </div>
+                                                                </div>
+                                                                <br/>
+                                                            </div>
+                                                            <button type="button" class="btn btn-warning"
+                                                                    id="saveQuestion"
+                                                                    ng-click="saveQuestion()">
+                                                                Add
+                                                                question
+                                                            </button>
+
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-6">
+                                                            <hr class="colorgraph">
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <label>Answer:</label>
+                                                                        <input type="text" class="form-control"
+                                                                               id="answerOfSurvey"
+                                                                               placeholder="Answer"
+                                                                               ng-model="answerOfSurvey"/>
+
+                                                                    </div>
+                                                                </div>
+                                                                <br/>
+                                                            </div>
+                                                            <button type="button" class="btn btn-warning"
+                                                                    id="saveAnswer"
+                                                                    ng-click="saveAnswer()">
+                                                                Add
+                                                                answer
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-12 col-sm-12">
+
+
+                                                    <div class="col-md-6 col-sm-6">
+
                                                         </br>
-
-                                                        <button  type="button" class="btn btn-warning" id="addSurvey"
-                                                                 ng-click="saveSurvey()">     Add
-                                                            survey
-                                                        </button>
+                                                        <div class="panel panel-warning">
+                                                            <div class="panel-heading">Added questions</div>
+                                                            <div class="panel-body">
+                                                                <div ng-repeat="q in questions">
+                                                                    <form action="">
+                                                                     <input type="radio" alt=q.id
+                                                                            ng-click="selectQ(q.id)"
+                                                                     >
+                                                                    {{q.question}}
+                                                                        </form>
+                                                                    <div ng-repeat="(index,a) in q.answers">
+                                                                        <li>{{q.answers[index].answer}}</li>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
 
-                                                </div>
-                                                <br/>
-                                            </div>
-
-
-
-
-
-
-
-
-
-
-                                            <div  class="col-md-12 col-sm-12">
-                                                <div class="row">
                                                     <div class="col-md-6 col-sm-6">
-                                                    <hr class="colorgraph">
-                                                    <div class="form-group">
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <label>Question:</label>
-                                                                <input type="text" class="form-control"
-                                                                       id="questionOfSurvey"
-                                                                       placeholder="Question"
-                                                                       ng-model="questionOfSurvey"/>
-
-                                                            </div>
-                                                        </div>
-                                                        <br/>
-                                                    </div>
-                                                    <button type="button" class="btn btn-warning" id="saveQuestion"
-                                                            ng-click="saveQuestion()">
-                                                        Add
-                                                        question
-                                                    </button>
-
-                                                </div>
-                                                    <div class="col-md-6 col-sm-6">
-                                                    <hr class="colorgraph">
-                                                    <div class="form-group">
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <label>Answer:</label>
-                                                                <input type="text" class="form-control"
-                                                                       id="answerOfSurvey"
-                                                                       placeholder="Answer"
-                                                                       ng-model="answerOfSurvey"/>
-
-                                                            </div>
-                                                        </div>
-                                                        <br/>
-                                                    </div>
-                                                    <button type="button" class="btn btn-warning" id="saveAnswer"
-                                                            ng-click="saveAnswer()">
-                                                        Add
-                                                        answer
-                                                    </button>
-                                                </div>
-                                                </div>
-                                            </div>
-
-                                            <div  class="col-md-12 col-sm-12">
-
-
-                                            <div class="col-md-6 col-sm-6">
-
-                                                </br>
-                                                <div class="panel panel-warning">
-                                                    <div class="panel-heading">Added questions</div>
-                                                    <div class="panel-body">
-                                                        <div ng-repeat="q in questions"><input type="checkbox">
-                                                            {{q.question}}
-                                                            <div ng-repeat="(index,a) in q.answers">
-                                                                <li>{{q.answers[index].answer}}</li>
+                                                        </br>
+                                                        <div class="panel panel-warning">
+                                                            <div class="panel-heading">Added answers</div>
+                                                            <div class="panel-body">
+                                                                <div ng-repeat="a in answer">
+                                                                    <input type="checkbox"
+                                                                           ng-checked="exists(a, selected)"
+                                                                           ng-click="toggle(a, selected)"
+                                                                           alt="a.id">
+                                                                    {{a.answer}}
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            <div class="col-md-6 col-sm-6">
-                                                </br>
-                                                <div class="panel panel-warning">
-                                                    <div class="panel-heading">Added answers</div>
-                                                    <div class="panel-body">
-                                                        <div ng-repeat="a in answer"><input type="checkbox">
-                                                            {{a.answer}}
-                                                            <!--<div ng-repeat="(index,a) in q.answers">-->
-                                                                <!--<li>{{q.answers[index].answer}}</li>-->
-                                                            <!--</div>-->
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            </div>
+                                            <br/>
                                         </div>
-                                        <br/>
                                     </div>
                                 </div>
+
+
+                                <h3>
+                                    Connect the question with answers
+
+                                </h3>
+                                <div align="center">
+                                    <button type="button" class="btn btn-warning" id="saveRelations"
+                                            ng-click="saveRelations()">
+                                        Add relations
+                                    </button>
+                                </div>
+
+
+                                <!--<div>-->
+
+                                    <!--<code style="display: block; padding: 8px;">{{selected | json}}</code>-->
+                                <!--</div>-->
+
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
                 <div id="users" class="tab-pane fade in active">
                     <div class="account" ng-controller="AccountController">
                         <div class="container">

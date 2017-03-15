@@ -76,7 +76,7 @@ public class QuestionController {
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
     @PostMapping("/put/{id}")
     public ResponseEntity<Question> update(@PathVariable long id, @RequestBody Question question) {
-        questionRepository.update(id, question);
+        questionRepository.update(Long.valueOf(id), question);
         return new ResponseEntity<Question>(question, new HttpHeaders(), HttpStatus.OK);
     }
 

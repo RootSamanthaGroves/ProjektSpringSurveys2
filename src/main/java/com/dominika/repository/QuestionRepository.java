@@ -69,11 +69,7 @@ public class QuestionRepository {
             if (!q.getAnswers().isEmpty()) {
                 question.setAnswers(q.getAnswers());
             }
-
-
             entityManager.merge(question);
-
-
             return question;
 
         }
