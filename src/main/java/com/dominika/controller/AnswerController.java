@@ -38,7 +38,7 @@ public class AnswerController {
 
         @PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
         @PostMapping("/add")
-        public ResponseEntity<Answer> postQuestion(@RequestBody Answer answer) {
+        public ResponseEntity<Answer> postAnswer(@RequestBody Answer answer) {
             answerRepository.save(answer);
             return ResponseEntity.ok(answer);
         }
@@ -46,7 +46,7 @@ public class AnswerController {
 
         @PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
         @DeleteMapping("delete/id/{id}")
-        public ResponseEntity<Question> deleteQuestion(@PathVariable Optional<Long> id) {
+        public ResponseEntity<Question> deleteAnswer(@PathVariable Optional<Long> id) {
             if (!id.equals(null)) {
                 Answer a = answerRepository.findOne(id.get());
                 answerRepository.removeOne(id.get());
@@ -64,7 +64,7 @@ public class AnswerController {
 
         @PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
         @RequestMapping(value = "/id/{id}")
-        public ResponseEntity<Answer> getDetailsOfQuestion(@PathVariable Optional<Long> id) {
+        public ResponseEntity<Answer> getDetailsOfAnswer(@PathVariable Optional<Long> id) {
             if (id.isPresent()) {
                Answer answer = answerRepository.findOne(id.get());
                 if (answer != null) {

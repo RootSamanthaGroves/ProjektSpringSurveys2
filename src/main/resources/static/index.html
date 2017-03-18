@@ -337,10 +337,10 @@
 
         <ul class="nav nav-tabs">
 
-            <li><a data-toggle="tab" href="#createSurvey">New Survey</a></li>
+            <li class="active"><a data-toggle="tab" href="#createSurvey">New Survey</a></li>
             <li><a data-toggle="tab" href="#deleteSurvey">Delete Survey</a></li>
             <li><a data-toggle="tab" href="#messageToMe">Message</a></li>
-            <li class="active"><a data-toggle="tab" href="#users">Users</a></li>
+            <li><a data-toggle="tab" href="#users">Users</a></li>
             <li><a data-toggle="tab" href="#myAccount">Account</a></li>
 
         </ul>
@@ -469,13 +469,24 @@
                                                         <div class="panel panel-warning">
                                                             <div class="panel-heading">Added answers</div>
                                                             <div class="panel-body">
-                                                                <div ng-repeat="a in answer">
-                                                                    <input type="checkbox"
-                                                                           ng-checked="exists(a, selected)"
-                                                                           ng-click="toggle(a, selected)"
-                                                                           alt="a.id">
-                                                                    {{a.answer}}
-                                                                </div>
+
+                                                                <table class="table table-hover">
+                                                                    <tbody>
+                                                                    <tr ng-repeat="a in answer">
+
+                                                                        <td><input type="checkbox"
+                                                                                   ng-checked="exists(a, selected)"
+                                                                                   ng-click="toggle(a, selected)"
+                                                                                   alt="a.id">
+                                                                            {{a.answer}}</td>
+                                                                        <td><a href="" class="btn btn-danger" ng-click="deleteAnswer(a.id)">
+                                                                            <span class="glyphicon glyphicon-trash"></span>
+                                                                        </a></td>
+
+
+                                                                    </tr>
+                                                                    </tbody>
+                                                                </table>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -543,6 +554,7 @@
                                             <!--<th>{{ u.password }}</th>-->
 
                                             <th>
+
                                                 <button class="btn btn-info" ng-click="editUser(u)">&#9998; Show
                                                     filled
                                                     questionnaires

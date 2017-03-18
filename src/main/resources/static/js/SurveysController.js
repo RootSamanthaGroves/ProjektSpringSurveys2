@@ -43,7 +43,7 @@ angular.module('myApp').controller('SurveysController', function ($scope, $resou
         };
 
         $http.post('/question/put/'+ $routeParams.id ,  questionObject).success(function () { //wywloujemy
-            alert('Thanks');
+            alert('Thanks'+$scope.selected);
             loadAllQuestionFromDb();
 
             // for(var i = 0; questionObject.length(); i++){
@@ -100,6 +100,24 @@ angular.module('myApp').controller('SurveysController', function ($scope, $resou
             $scope.status = "The Survey Deleted Successfully!!!";
             alert('Delete User');
             loadAllSurveyFromDb();
+        })
+            .error(function (error) {
+                //Showing error message
+                $scope.status = 'Unable to delete a person: ' + error.message;
+            });
+    }
+
+
+
+    $scope.deleteAnswer = function (Id) {
+        $http({
+            method: 'DELETE',
+            url: '/answer/delete/id/' + Id
+        }).success(function (data) {
+            //Showing Success message
+            $scope.status = "The Survey Deleted Successfully!!!";
+            alert('Delete User');
+            loadAllAnswersFromDb();
         })
             .error(function (error) {
                 //Showing error message
