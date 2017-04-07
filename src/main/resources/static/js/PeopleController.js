@@ -4,6 +4,22 @@
 angular.module('myApp').controller('PeopleController', function ($scope, $resource, $http) {
     $scope.message = 'Hello from PeopleController';
     $scope.user;
+    $scope.firstname;
+    $scope.lastname;
+
+
+    $scope.loadOnePeople = function (email) {
+        $scope.Email =email;
+        var User = $resource('user/email/', {}, {
+            query: {method: 'get', isArray: true, cancellable: true}
+        });
+
+        User.query(function (response) {
+            //alert(response); teraz w response masz to co bys widzial w postmanie takiego jsona
+            $scope.user = response; // widoku będziesz używał teraz people
+        });
+
+    };
 
 
     var loadAllPeopleFromDb = function () {
@@ -39,12 +55,14 @@ angular.module('myApp').controller('PeopleController', function ($scope, $resour
 
         };
 
-        $http.post('/user/add',userObject).success(function () { //wywloujemy
-            //alert('Thanks');
-            loadAllPeopleFromDb();
-        }).error(function () {
-            alert('We have problem!');
-        })
+        var userObject = {
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            password: password,
+            salary: salary
+
+        };
     };
 
 });

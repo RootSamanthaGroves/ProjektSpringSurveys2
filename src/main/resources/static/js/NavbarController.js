@@ -49,6 +49,4 @@ angular.module('myApp').controller('NavbarController', function ($scope, $resour
         // delete $localStorage.isLogin;
         $localStorage.$reset();
     }
-
-
 });

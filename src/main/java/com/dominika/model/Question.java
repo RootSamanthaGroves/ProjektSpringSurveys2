@@ -21,6 +21,15 @@ public class Question {
     public Question() {
     }
 
+    public Question(long id, String question) {
+        this.id = id;
+        this.question = question;
+    }
+
+    public Question(String question) {
+        this.question = question;
+    }
+
     public Question(long id, String question, List<Answer> answers) {
         this.id = id;
         this.question = question;

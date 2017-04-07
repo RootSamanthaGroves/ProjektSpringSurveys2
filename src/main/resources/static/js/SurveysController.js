@@ -10,6 +10,8 @@ angular.module('myApp').controller('SurveysController', function ($scope, $resou
     $scope.answer;
     $scope.question;
 
+    $scope.testMessage = "banan";
+
     $scope.testowy = 56;
     $scope.items = [];
     $scope.selected = [];
@@ -30,12 +32,10 @@ angular.module('myApp').controller('SurveysController', function ($scope, $resou
 
 
     $scope.saveRelations = function () {
-        //alert($scope.selected + " " + $scope.question);
-        console.log($scope.selected + " " + $scope.question);
+        alert($scope.selected + " " + $scope.question);
+        // console.log($scope.selected + " " + $scope.question);
 
-/*        var selectedObject = {
-            selected: $scope.selected
-        };*/
+
 
         var questionObject = {
             question: $scope.question,
@@ -46,9 +46,7 @@ angular.module('myApp').controller('SurveysController', function ($scope, $resou
             alert('Thanks'+$scope.selected);
             loadAllQuestionFromDb();
 
-            // for(var i = 0; questionObject.length(); i++){
-            //     console.log(questionObject.answers[i].answer);
-            // }
+
 
         }).error(function () {
             alert("nie udało się ")
@@ -61,6 +59,7 @@ angular.module('myApp').controller('SurveysController', function ($scope, $resou
         });
         Survey.query(function (response) {
             $scope.questions = response;
+            // console.log("LoadAllQuestions -> "+$scope.questions);
         });
     };
     loadAllQuestionFromDb();
@@ -72,6 +71,7 @@ angular.module('myApp').controller('SurveysController', function ($scope, $resou
         });
         Survey.query(function (response) {
             $scope.answer = response;
+            // console.log("LoadAllAnswers -> "+$scope.answer);
         });
     };
     loadAllAnswersFromDb();
@@ -87,6 +87,18 @@ angular.module('myApp').controller('SurveysController', function ($scope, $resou
         });
     };
     $rootScope.loadAllSurveyFromDb();
+
+    $scope.loadAllSurveyFromDb = function () {
+        var Survey = $resource('survey/all', {}, {
+            query: {method: 'get', isArray: true, cancellable: true}
+        });
+
+        Survey.query(function (response) {
+            $scope.survey = response;
+            // console.log("LoadAllSurveys -> "+$scope.survey);
+        });
+    };
+    $scope.loadAllSurveyFromDb();
 
 
     $scope.delete = function (Id) {
@@ -115,8 +127,53 @@ angular.module('myApp').controller('SurveysController', function ($scope, $resou
             url: '/answer/delete/id/' + Id
         }).success(function (data) {
             //Showing Success message
+            // $scope.status = "The Survey Deleted Successfully!!!";
+            // alert('Delete User');
+            // loadAllAnswersFromDb();
+        })
+            .error(function (error) {
+                //Showing error message
+                $scope.status = 'Unable to delete a person: ' + error.message;
+            });
+    }
+
+    $scope.editAnswer = function (Id,text) {
+
+        var answer = prompt("Please enter the answer"+Id, text);
+
+        var answerObj = {
+            a: answer
+
+        };
+        alert(answerObj);
+        $http.put('/answer/id', answerObj).success(function () { //wywloujemy
+            alert('answer update' + answerObj);
+            loadAllAnswersFromDb();
+        }).error(function () {
+            alert('We have problem!');
+        })
+
+
+        $http.post('/answer/put/'+ Id ,  answerObj).success(function () { //wywloujemy
+            alert('Thanks');
+
+            loadAllAnswersFromDb();
+
+            // for(var i = 0; questionObject.length(); i++){
+            //     console.log(questionObject.answers[i].answer);
+            // }
+
+        }).error(function () {
+            alert("nie udało się ")
+        })
+        $http({
+
+            method: 'PUT',
+            url: '/answer/put/id/' + Id
+        }).success(function (data) {
+            //Showing Success message
             $scope.status = "The Survey Deleted Successfully!!!";
-            alert('Delete User');
+            alert('Update User');
             loadAllAnswersFromDb();
         })
             .error(function (error) {
@@ -124,6 +181,72 @@ angular.module('myApp').controller('SurveysController', function ($scope, $resou
                 $scope.status = 'Unable to delete a person: ' + error.message;
             });
     }
+
+
+    $scope.deleteQuestion = function (Id) {
+    console.log("poczatek");
+        $http({
+            method: 'DELETE',
+            url: '/question/delete/id/' + Id
+        }).success(function (data) {
+            //Showing Success message
+            console.log("banan");
+            $scope.status = "The Survey Deleted Successfully!!!";
+             loadAllQuestionFromDb();
+        })
+            .error(function (error) {
+                    console.log("banana error");
+                //Showing error message
+                $scope.status = 'Unable to delete a question: ' + error.message;
+            });
+    }
+
+    $scope.editQuestion = function (Id,text) {
+
+        var question = prompt("Please enter the question "+Id, text);
+
+        var questionObj = {
+            q: question
+
+        };
+
+        $http.put('/question/id', questionObj).success(function () { //wywloujemy
+            alert('question update' + questionObj);
+            loadAllQuestionFromDb();
+        }).error(function () {
+            alert('We have problem!');
+        })
+
+
+        $http.post('/answer/put/'+ Id ,  answerObj).success(function () { //wywloujemy
+            alert('Thanks');
+
+            loadAllAnswersFromDb();
+
+            // for(var i = 0; questionObject.length(); i++){
+            //     console.log(questionObject.answers[i].answer);
+            // }
+
+        }).error(function () {
+            alert("nie udało się ")
+        })
+        $http({
+
+            method: 'PUT',
+            url: '/answer/put/id/' + Id
+        }).success(function (data) {
+            //Showing Success message
+            $scope.status = "The Survey Deleted Successfully!!!";
+            alert('Update User');
+            loadAllAnswersFromDb();
+        })
+            .error(function (error) {
+                //Showing error message
+                $scope.status = 'Unable to delete a person: ' + error.message;
+            });
+    }
+
+
 
     $scope.showQuestion = function (id) {
 
@@ -176,13 +299,16 @@ angular.module('myApp').controller('SurveysController', function ($scope, $resou
 
     $scope.loadOneSurvey = function (id) {
         $scope.idSurvey = id;
-        alert("jestem w finf one" + $scope.idSurvey);
+        alert("" + $scope.idSurvey);
         SurveyService
             .findOneSurvey(id)
             .then(function (response) {
                 if (response.status == 200) {
                     $scope.ankietka = response.data;
                     // alert($scope.ankietka);
+
+                } else {
+                    console.log($scope.ankietka + " sdasdsa");
                 }
             })
     };

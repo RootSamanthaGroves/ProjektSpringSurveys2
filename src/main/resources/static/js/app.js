@@ -10,9 +10,17 @@ myApp.config(function ($routeProvider) {
             templateUrl: 'views/register.html',
             controller: 'RegisterController'
         })
-        .when('/login', {
-            templateUrl: 'views/login2.html',
-            controller: 'LoginController'
+        .when('/', {
+            templateUrl: 'views/content.html',
+            controller: 'SurveysController'
+        })
+        // .when('/login', {
+        //     templateUrl: 'views/login.html',
+        //     controller: 'LoginController'
+        // })
+        .when('/user/account', {
+            templateUrl: 'views/user-account.html',
+            controller: 'AccountController'
         })
 
 

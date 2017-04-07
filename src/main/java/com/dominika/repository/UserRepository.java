@@ -53,6 +53,8 @@ public class UserRepository {
         return u;
     }
 
+
+
     public User findOneByEmail(String email) {
         TypedQuery<User> query = entityManager.createQuery("select u from User u where u.email = :email", User.class);
         query.setParameter("email", email);

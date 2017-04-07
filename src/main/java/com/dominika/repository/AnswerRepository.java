@@ -22,62 +22,60 @@ import java.util.List;
 public class AnswerRepository {
 
 
-        @PersistenceContext
-        private EntityManager entityManager;
+    @PersistenceContext
+    private EntityManager entityManager;
 
-        @Transactional
-        public void save(Answer a) {
-            entityManager.persist(a);
-        }
+    @Transactional
+    public void save(Answer a) {
+        entityManager.persist(a);
+    }
 
-        public List<Answer> findAll() {
-            TypedQuery<Answer> query = entityManager.createQuery("select a from Answer a", Answer.class);
-            return query.getResultList();
-        }
-
-
-        @Transactional
-        public ResponseEntity removeOne(long id) {
-
-           Answer a= entityManager.find(Answer.class, id);
-            if (a == null) {
-                return new ResponseEntity(new HttpHeaders(), HttpStatus.BAD_REQUEST);
-            } else {
-                entityManager.remove(a);
-                return new ResponseEntity(a, new HttpHeaders(), HttpStatus.BAD_REQUEST);
-            }
-
-        }
-
-        @Transactional
-        public Answer findOne(long id) {
-           Answer a = entityManager.find(Answer.class, id);
-            return a;
-        }
+    public List<Answer> findAll() {
+        TypedQuery<Answer> query = entityManager.createQuery("select a from Answer a", Answer.class);
+        return query.getResultList();
+    }
 
 
+    @Transactional
+    public ResponseEntity removeOne(long id) {
 
-
-        @Transactional
-        public Answer update(long id, Answer a) {
-            Answer answer = entityManager.find(Answer.class, id);
-
-            if (!a.getAnswer().isEmpty()) {
-                answer.setAnswer(a.getAnswer());
-            }
-
-            if (!a.getAnswer().isEmpty()) {
-                answer.setAnswer(a.getAnswer());
-            }
-
-
-            entityManager.merge(answer);
-
-
-            return answer;
-
+        Answer a = entityManager.find(Answer.class, id);
+        if (a == null) {
+            return new ResponseEntity(new HttpHeaders(), HttpStatus.BAD_REQUEST);
+        } else {
+            entityManager.remove(a);
+            return new ResponseEntity(a, new HttpHeaders(), HttpStatus.BAD_REQUEST);
         }
 
     }
+
+    @Transactional
+    public Answer findOne(long id) {
+        Answer a = entityManager.find(Answer.class, id);
+        return a;
+    }
+
+
+    @Transactional
+    public Answer update(long id, Answer a) {
+        Answer answer = entityManager.find(Answer.class, id);
+
+        if (!a.getAnswer().isEmpty()) {
+            answer.setAnswer(a.getAnswer());
+        }
+
+        if (!a.getAnswer().isEmpty()) {
+            answer.setAnswer(a.getAnswer());
+        }
+
+
+        entityManager.merge(answer);
+
+
+        return answer;
+
+    }
+
+}
 
 

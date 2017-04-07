@@ -43,18 +43,17 @@ public class QuestionController {
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
     @DeleteMapping("delete/id/{id}")
     public ResponseEntity<Question> deleteQuestion(@PathVariable Optional<Long> id) {
-        if (!id.equals(null)) {
-            Question q = questionRepository.findOne(id.get());
-            questionRepository.removeOne(id.get());
-            if (q != null) {
-                return new ResponseEntity(q, new HttpHeaders(), HttpStatus.OK);
-            } else {
-                return new ResponseEntity(new HttpHeaders(), HttpStatus.NOT_FOUND);
-            }
-        } else {
-            return new ResponseEntity(new HttpHeaders(), HttpStatus.BAD_REQUEST);
 
-        }
+            Question q = questionRepository.findOne(id.get()); //dobre
+            if(q!=null){
+                questionRepository.removeOne(id.get());
+            }
+            Optional<Question> opt = Optional.ofNullable(questionRepository.findOne(id.get()));
+            if(!opt.isPresent())
+                return ResponseEntity.ok(null);
+            return ResponseEntity.ok(opt.get());
+
+
     }
 
 

@@ -60,6 +60,8 @@ public class UserController {
         user.setPassword(encoder.encode(user.getPassword()));
         userRepository.save(user);
         return ResponseEntity.ok(user);
+
+        //jj
     }
 
 
@@ -120,6 +122,11 @@ public class UserController {
     @RequestMapping("user")
     public String view() {
         return "redirect:/views/index.html";
+    }
+
+    @RequestMapping( value = "account", method = RequestMethod.GET)
+    public String viewAccount() {
+        return "redirect:views/user-account.html";
     }
 
 }
